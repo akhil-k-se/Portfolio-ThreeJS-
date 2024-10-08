@@ -7,7 +7,9 @@ const CanvasLoader = () => {
   return (
     <Html as='div' center className='flex justify-center items-center flex-col'>
         <span className='canvas-loader'/>
-        <p></p> 
+        <p style={{fontSize:14, color:'#F1F1F1',fontWeight:800,marginTop:40}}>
+            {progress!= 0? `${progress.toFixed(2)}%`:"Loading..."}
+        </p> 
     </Html>
   )
 }
