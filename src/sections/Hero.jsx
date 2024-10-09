@@ -32,7 +32,7 @@ const Hero = () => {
       </div>
       <div className="w-full h-full absolute  inset-0">
         <Canvas className="w-full h-full">
-          <OrbitControls enablePan enableRotate enableZoom={false} />
+          <OrbitControls enableRotate={false} enableZoom={false}/>
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 20]} />
             <HeroCamera isMobile={isMobile}>
