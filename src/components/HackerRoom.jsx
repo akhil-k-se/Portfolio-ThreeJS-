@@ -10,7 +10,10 @@ const HackerRoom=(props)=> {
   const { nodes, materials } = useGLTF('/models/hacker-room.glb');
 
   const monitortxt = useTexture('textures/desk/monitor.png');
-  const screenTxt = useTexture('textures/desk/screen.png');
+  const screenTxt = useTexture('textures/desk/name.png');
+  const me = useTexture('textures/desk/me-3.jpg');
+
+  screenTxt.offset.set(0.1,0.16)
 
   return (
     <group {...props} dispose={null}>
@@ -21,6 +24,7 @@ const HackerRoom=(props)=> {
       <mesh geometry={nodes.table_table_mat_0_1.geometry} material={materials.table_mat} />
       <mesh geometry={nodes.table_table_mat_0_2.geometry} material={materials.computer_mat}>
         <meshMatcapMaterial map={monitortxt} />
+        
       </mesh>
       <mesh geometry={nodes.table_table_mat_0_3.geometry} material={materials.server_mat} />
       <mesh geometry={nodes.table_table_mat_0_4.geometry} material={materials.vhsPlayer_mat} />
