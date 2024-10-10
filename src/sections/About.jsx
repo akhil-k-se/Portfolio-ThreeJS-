@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import Globe from 'react-globe.gl';
 
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import Button from '../components/Button.jsx';
 
 const About = () => {
@@ -15,10 +19,30 @@ const About = () => {
     }, 2000);
   };
 
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(()=>{
+    gsap.from("#bentoGrid", {  
+      // y: 100,
+      // x:-100,
+      opacity:0,  
+      duration: 2,
+      stagger:1, 
+      ease:"power1.out" ,
+      scrollTrigger: {  
+        trigger: "#bentoGrid",  
+        start: "top 50%",  
+        end: "bottom 40%",  
+        // markers: true,  
+        scrub: 5, 
+      }
+    });
+  })
+
   return (
-    <section className="c-space my-20" id="about">
+    <section id="about" className="c-space my-20">
       <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
-        <div className="col-span-1 xl:row-span-3">
+        <div id='bentoGrid' className="col-span-1 xl:row-span-3">
           <div className="grid-container">
             <img src="assets/grid1.png" alt="grid-1" className="w-full sm:h-[276px] h-fit object-contain" />
 
@@ -32,7 +56,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="col-span-1 xl:row-span-3">
+        <div id='bentoGrid' className="col-span-1 xl:row-span-3">
           <div className="grid-container">
             <img src="assets/grid-2.png" alt="grid-2" className="w-full sm:h-[276px] h-fit object-contain" />
 
@@ -46,7 +70,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="col-span-1 xl:row-span-4">
+        <div id='bentoGrid' className="col-span-1 xl:row-span-4">
           <div className="grid-container">
             <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
               <Globe
@@ -58,7 +82,7 @@ const About = () => {
                 showGraticules
                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
                 bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-                labelsData={[{ lat: 40, lng: -100, text: 'Rjieka, Croatia', color: 'white', size: 15 }]}
+                // labelsData={[{ lat: 40, lng: -100, text: 'Rjieka, Croatia', color: 'white', size: 15 }]}
               />
             </div>
             <div>
@@ -69,7 +93,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="xl:col-span-2 xl:row-span-3">
+        <div id='bentoGrid' className="xl:col-span-2 xl:row-span-3">
           <div className="grid-container">
             <img src="assets/grid3.png" alt="grid-3" className="w-full sm:h-[266px] h-fit object-contain" />
 
@@ -83,7 +107,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="xl:col-span-1 xl:row-span-2">
+        <div id='bentoGrid' className="xl:col-span-1 xl:row-span-2">
           <div className="grid-container">
             <img
               src="assets/grid4.png"
