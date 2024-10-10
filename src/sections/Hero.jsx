@@ -30,7 +30,7 @@ const Hero = () => {
           Building Products and Brands
         </p>
       </div>
-      <div className="w-full h-full absolute  inset-0">
+      <div className="w-full h-full absolute pointer-events-none inset-0">
         <Canvas className="w-full h-full">
           <OrbitControls enableRotate={false} enablePan enableZoom={false}/>
           <Suspense fallback={<CanvasLoader />}>
