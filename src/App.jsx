@@ -9,7 +9,7 @@ import Experience from './sections/Experience'
 
 const App = () => {
   return (
-    <main className='max-w-7xl mx-auto'>
+    <main className='max-w-[90rem] mx-auto'>
     <Navbar/>
     <Hero/>
     <About/>
