@@ -1,25 +1,30 @@
 import React, { useState } from 'react'
 import { navLinks } from '../constants'
 
-const NavItems=()=>{
-    return(
-        <ul className='nav-ul'>
-            {navLinks.map(({id,name,href})=>(
-                <li key={id} className='nav-li'>
-                    <a href={href} className='nav-li_a'>
-                        {name}
-                    </a>
-                </li>
-            ))}
-        </ul>
-    )
-}
+
 
 const Navbar = () => {
 
-    const [isOpen, setIsOpen] = useState(false)
+    
 
+    const [isOpen, setIsOpen] = useState(false)
     const toggleMenu = ()=> setIsOpen((prevIsOpen)=>(!prevIsOpen))
+
+
+    const NavItems=()=>{
+        return(
+            <ul className='nav-ul'>
+                {navLinks.map(({id,name,href})=>(
+                    <li key={id} className='nav-li'>
+                        <a href={href} onClick={toggleMenu} className='nav-li_a'>
+                            {name}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        )
+    }
+
 
   return (
     <header className='text-white top-0 left-0 right-0 z-50 bg-black/90 fixed'>

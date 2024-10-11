@@ -11,7 +11,6 @@ const HackerRoom=(props)=> {
 
   const monitortxt = useTexture('textures/desk/monitor.png');
   const screenTxt = useTexture('textures/desk/name.png');
-  const me = useTexture('textures/desk/me-3.jpg');
 
   screenTxt.offset.set(0.1,0.16)
 
